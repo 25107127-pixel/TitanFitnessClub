@@ -250,7 +250,7 @@ body{
     transition: 0.2s ease;
 }
 
-.sidebar li a:hover {
+.sidebar li:not(.active) a:hover {
     background: #242424;
     color: #d4af37;
 }
@@ -402,7 +402,7 @@ body { font-family:'Poppins',sans-serif; background:#121212; color:#F5F5F5; line
 .sidebar li { margin:5px 15px; padding:0; font-size:.94rem; }
 .sidebar li:hover, .sidebar li.active { background:transparent; }
 .sidebar li a { min-height:48px; gap:16px; padding:14px 18px; border-radius:12px; }
-.sidebar li a:hover { background:#232323; color:#D4AF37; }
+.sidebar li:not(.active) a:hover { background:#232323; color:#D4AF37; }
 .sidebar li.active a { background:#D4AF37; color:#121212; box-shadow:inset 3px 0 #F4D03F; }
 .sidebar li a i { flex:0 0 22px; width:22px; }
 .logout-form { padding:0; }

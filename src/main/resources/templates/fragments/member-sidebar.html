@@ -79,17 +79,18 @@
     <script>
         document.addEventListener("DOMContentLoaded", function () {
 
-            const currentPath = window.location.pathname;
+            const normalizePath = function (path) {
+                return path.replace(/\/+$/, "") || "/";
+            };
+            const currentPath = normalizePath(window.location.pathname);
 
-            document.querySelectorAll(".sidebar a").forEach(function (link) {
+            document.querySelectorAll(".sidebar-menu a").forEach(function (link) {
 
-                const linkPath = new URL(link.href).pathname;
+                const linkPath = normalizePath(new URL(link.href).pathname);
+                const li = link.closest("li");
 
-                if (linkPath === currentPath) {
-                    const li = link.closest("li");
-                    if (li) {
-                        li.classList.add("active");
-                    }
+                if (li) {
+                    li.classList.toggle("active", linkPath === currentPath);
                 }
 
             });
